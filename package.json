@@ -1,0 +1,27 @@
+{
+  "name": "diplomenproekt2.0",
+  "version": "1.0.0",
+  "description": "JS project for Vocational High School of Electricity.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgiPetrov23/DiplomenProekt2.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GeorgiPetrov23/DiplomenProekt2.0/issues"
+  },
+  "homepage": "https://github.com/GeorgiPetrov23/DiplomenProekt2.0#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
