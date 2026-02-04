@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/GeorgiPetrov23/DiplomenProekt2.0#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
