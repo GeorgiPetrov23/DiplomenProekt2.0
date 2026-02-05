@@ -6,7 +6,8 @@ p{
 }
 
 div{
-    background: #333;
+    background: #f5f5f4;
+    color: black;
     padding: 20px;
     border-radius: 8px;
     width: 100%;
@@ -21,6 +22,12 @@ div{
     text-align: center;
     margin-bottom: 20px;
 }
+
+strong{
+    font-size: 1.2em;
+    color: #f59e0b;
+}
 .contacts{
     margin-bottom: 10px;
+    color: #f59e0b;
 }

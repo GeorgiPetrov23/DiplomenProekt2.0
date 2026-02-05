@@ -10,4 +10,8 @@ router.get('/test', (req, res) => {
     res.send('Test route works!');
 });
 
+router.get('/about', (req, res) => {
+    res.render('home/about');
+});
+
 export default router;
