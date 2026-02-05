@@ -13,10 +13,6 @@ app.set("views", "./src/views");
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.render('home');
-});
-
 app.use(routes);
 
 app.listen(3000, () => {
