@@ -3,8 +3,8 @@ import recipeService from '../services/recipeService.js';
 
 const router = Router();
 
-router.get('/cookbook', (req, res) => {
-    const recipes = recipeService.getAll();
+router.get('/cookbook', async (req, res) => {
+    const recipes = await recipeService.getAll();
     res.render('home/cookbook', { recipes });
 });
 

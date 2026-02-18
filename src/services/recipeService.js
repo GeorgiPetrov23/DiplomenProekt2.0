@@ -1,5 +1,6 @@
-import recipes from '../data/recipeData.js';
-const getAll = () => recipes;
+
+import recipeData from '../data/recipeData.js';
+const getAll = () =>  recipeData.getRecipes();
 
 
 export default {

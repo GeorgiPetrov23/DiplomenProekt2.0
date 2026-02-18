@@ -1,3 +1,5 @@
+import fs from 'fs/promises';
+
 const recipes = [
     {
         _id: '1',
@@ -25,4 +27,12 @@ const recipes = [
     }
 ];
 
-export default recipes;
+async function getRecipes(){
+    const db = await fs.readFile('./src/db.json');
+
+    return JSON.parse(db).recipes;
+}
+
+export default {
+    getRecipes
+};
