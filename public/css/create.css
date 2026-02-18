@@ -1,45 +1,47 @@
-main {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.car-form {
-    background: #333;
+.recipe-form {
+    margin: 0 auto;
+    margin-top: 85px;
+    background: #f5f5f4;
     padding: 20px;
     border-radius: 8px;
     width: 100%;
     max-width: 600px;   
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
 }
 
-.car-form label {
+.recipe-form label {
     margin-top: 10px;
     display: block;
 }
 
-.car-form input,
-.car-form select,
-.car-form textarea {
-    width: 100%;
+.recipe-form input,
+.recipe-form select,
+.recipe-form textarea {
+    width: 96.5%;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
-    border: none;
+    border: 2px solid #d1d5db;
 }
 
-.car-form button {
+.recipe-form button {
+    font-size: 1.1em;
     display: block;
     width: 100%;
     padding: 15px 20px;
-    background-color: #4caf50;
+    background-color: #f59e0b;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
-.car-form button:hover {
-    background-color: #45a049;
+.recipe-form button:hover {
+    background-color: #d97706;
+}
+
+.error{
+    color: red;
 }
