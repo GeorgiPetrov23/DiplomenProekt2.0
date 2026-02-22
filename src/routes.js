@@ -6,7 +6,7 @@ import recipeController from './controllers/recipeController.js';
 const router = Router();
 
 router.use('/', homeController);
-router.use('/recipe', recipeController);
+router.use('/recipes', recipeController);
 
 export default router;
 

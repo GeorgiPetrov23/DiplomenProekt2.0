@@ -11,4 +11,12 @@ router.get('/cookbook', async (req, res) => {
 router.get('/create', (req, res) => {
     res.render('recipes/create');
 });
+
+router.post('/create', async (req, res) => {
+    const recipeData = req.body;
+
+    //TODO: save recipe data
+
+    res.end();
+});
 export default router;
