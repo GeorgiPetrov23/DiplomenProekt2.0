@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import path from 'path';
 
 const recipes = [
     {
@@ -27,10 +28,16 @@ const recipes = [
     }
 ];
 
-async function getRecipes(){
-    const db = await fs.readFile('./src/db.json');
+async function getDb(){
+    const dbPath = path.resolve('./src/db.json');
+    const jsonResult = await fs.readFile(dbPath, {encoding: 'utf-8'});
+    const data = JSON.parse(jsonResult);
+    return data;
+}
 
-    return JSON.parse(db).recipes;
+async function getRecipes(){
+    const data = await getDb();
+    return data.recipes;
 }
 
 export default {
