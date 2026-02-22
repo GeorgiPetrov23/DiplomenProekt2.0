@@ -9,6 +9,6 @@ router.get('/cookbook', async (req, res) => {
 });
 
 router.get('/create', (req, res) => {
-    res.render('create');
+    res.render('recipes/create');
 });
 export default router;

@@ -13,3 +13,5 @@ JS project for Vocational High School of Electricity.
  6. Render home page
  7. Add routes and controllers
  8. Extract partial template
+ 9. Add service and data layers 
+ 10. Add create page
