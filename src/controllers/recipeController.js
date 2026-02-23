@@ -15,8 +15,8 @@ router.get('/create', (req, res) => {
 router.post('/create', async (req, res) => {
     const recipeData = req.body;
 
-    //TODO: save recipe data
+    await recipeService.create(recipeData);
 
-    res.end();
+    res.redirect('/recipes/cookbook');
 });
 export default router;

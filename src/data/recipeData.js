@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import { get } from 'http';
 import path from 'path';
 
 const recipes = [
@@ -27,19 +28,31 @@ const recipes = [
         imageUrl: 'https://static01.nyt.com/images/2024/09/10/multimedia/JG-Parmesan-Crusted-Salmon-Caesar-Saladrex-kjpb/JG-Parmesan-Crusted-Salmon-Caesar-Saladrex-kjpb-mediumSquareAt3X.jpg'
     }
 ];
+const dbPath = path.resolve('./src/db.json');
 
 async function getDb(){
-    const dbPath = path.resolve('./src/db.json');
     const jsonResult = await fs.readFile(dbPath, {encoding: 'utf-8'});
     const data = JSON.parse(jsonResult);
+    
     return data;
 }
 
-async function getRecipes(){
+async function saveDb(data){
+    await fs.writeFile(dbPath, JSON.stringify(data, {} , 2), {encoding: 'utf-8'});
+}
+
+async function getAll(){
     const data = await getDb();
     return data.recipes;
 }
 
+async function create(recipeData){
+    const db = await getDb();
+    db.recipes.push(recipeData);
+    return saveDb(db);
+}
+
 export default {
-    getRecipes
+    getAll,
+    create
 };
