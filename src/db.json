@@ -49,10 +49,17 @@
     },
     {
       "title": "Musaka",
-      "ingredients": "nz",
+      "ingredients": ["eggplant", "potatoes", "ground meat", "onion", "tomato sauce", "bechamel sauce"],
       "instructions": "asd",
       "imageUrl": "https://menumag.bg/wp-content/uploads/2025/10/ChatGPT-Image-Oct-28-2025-at-10_22_48-AM.png",
       "_id": "2nye4w9ncwmlzngdt6"
+    },
+    {
+      "title": "sifygsef",
+      "ingredients": ["eggplant", "potatoes", "ground meat", "onion", "tomato sauce", "bechamel sauce"],
+      "instructions": "asrgasrgfesf",
+      "imageUrl": "https://menumag.bg/wp-content/uploads/2025/10/ChatGPT-Image-Oct-28-2025-at-10_22_48-AM.png",
+      "_id": "2nye4w9ukwmmue6n2t"
     }
   ]
 }

@@ -1,11 +1,5 @@
-main {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.car-details {
-    background: #333;
+.details {
+    background: #f5f5f4;
     padding: 20px;
     border-radius: 8px;
     width: 100%;
@@ -14,23 +8,28 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 150px;
 }
 
-.car-image {
+.recipe-image {
     width: 100%;
     max-width: 400px;
     border-radius: 8px;
     margin-bottom: 20px;
 }
 
-.car-info {
+.recipe-info {
     width: 100%;
     text-align: left;
 }
 
-.car-info p,
-.car-info h2 {
+.recipe-info p,
+.recipe-info h2 {
     margin: 10px 0;
+}
+
+.ingredients li{
+    margin-left : 20px;
 }
 
 .actions {

@@ -1,5 +1,4 @@
 import fs from 'fs/promises';
-import { get } from 'http';
 import path from 'path';
 
 const recipes = [

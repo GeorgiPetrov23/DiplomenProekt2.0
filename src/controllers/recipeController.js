@@ -19,4 +19,11 @@ router.post('/create', async (req, res) => {
 
     res.redirect('/recipes/cookbook');
 });
+
+router.get('/details/:id', async (req, res) => {
+    const recipeId = req.params.id;
+    const recipe = await recipeService.getOne(recipeId);
+    
+    res.render('recipes/details', { recipe, ingredients: recipe.ingredients });
+});
 export default router;
