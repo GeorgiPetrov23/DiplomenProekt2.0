@@ -14,10 +14,11 @@ router.get('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
     const recipeData = req.body;
+    req.body.ingredients = req.body.ingredients.split(',').map(i => i.trim());
 
     await recipeService.create(recipeData);
 
-    res.redirect('/recipes/cookbook', { title: 'Cookbook' });
+    res.redirect('/recipes/cookbook');
 });
 
 router.get('/details/:id', async (req, res) => {
