@@ -5,11 +5,11 @@ const router = Router();
 
 router.get('/cookbook', async (req, res) => {
     const recipes = await recipeService.getAll();
-    res.render('home/cookbook', { recipes });
+    res.render('home/cookbook', { recipes, title: 'Cookbook' });
 });
 
 router.get('/create', (req, res) => {
-    res.render('recipes/create');
+    res.render('recipes/create', { title: 'Create Recipe' });
 });
 
 router.post('/create', async (req, res) => {
@@ -17,13 +17,13 @@ router.post('/create', async (req, res) => {
 
     await recipeService.create(recipeData);
 
-    res.redirect('/recipes/cookbook');
+    res.redirect('/recipes/cookbook', { title: 'Cookbook' });
 });
 
 router.get('/details/:id', async (req, res) => {
     const recipeId = req.params.id;
     const recipe = await recipeService.getOne(recipeId);
     
-    res.render('recipes/details', { recipe, ingredients: recipe.ingredients });
+    res.render('recipes/details', { recipe, ingredients: recipe.ingredients, title: 'Recipe Details' });
 });
 export default router;
