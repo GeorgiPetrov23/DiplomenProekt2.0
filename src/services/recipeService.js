@@ -1,22 +1,19 @@
-import uniqid from 'uniqid';
-import recipeData from '../data/recipeData.js';
+import Recipe from '../models/Recipe.js';
 
-const getAll = () =>  recipeData.getAll();
-
-const getOne = async (recipeId) => {
-    const recipes = await recipeData.getAll();
-
-    const resultRecipe = recipes.find(r => r._id == recipeId);
-
-    return resultRecipe
+const getAll = () => {
+    return Recipe.find();
 }
 
-const create = (recipe) => {
-    recipe._id = uniqid();
-    return recipeData.create(recipe);
+const getOne = (recipeId) => {
+    return Recipe.findById(recipeId);
 }
+
+const create = async (recipe) => {
+    return await Recipe.create(recipe);
+}
+
 export default {
     getAll,
     create,
     getOne
-};
+}; 

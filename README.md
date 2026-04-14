@@ -18,4 +18,5 @@ JS project for Vocational High School of Electricity.
  11. Add Details page
  12. Extract init files
  13. Setup mongoose
- 14. Add models
+ 14. Add recipe model
+ 15. Convert file based storage to db storage
