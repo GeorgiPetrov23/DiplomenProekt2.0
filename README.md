@@ -16,3 +16,6 @@ JS project for Vocational High School of Electricity.
  9. Add service and data layers 
  10. Add Create page
  11. Add Details page
+ 12. Extract init files
+ 13. Setup mongoose
+ 14. Add models
