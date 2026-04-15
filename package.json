@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/GeorgiPetrov23/DiplomenProekt2.0#readme",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.4",
     "mongoose": "^9.4.1"
