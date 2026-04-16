@@ -7,6 +7,10 @@ const recipeSchema = new Schema({
     imageUrl: { type: String }
 });
 
+
+//! Regex for validating the ingredients "^(.+? - \d+g)(, .+? - \d+g)*$"
+
+
 const Recipe = model('Recipe', recipeSchema);
 
 export default Recipe;

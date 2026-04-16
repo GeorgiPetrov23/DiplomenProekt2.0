@@ -11,12 +11,12 @@ router.post('/register', async (req, res) => {
     const { username, email, password, rePassword } = req.body;
 
     await authService.register(username, email, password);
-    // console.log(username);
-    // console.log(email);
-    // console.log(password);
-    // console.log(rePassword);
 
     res.redirect('/auth/login');
+});
+
+router.get('/login', (req, res) => {
+    res.render('auth/login', { title: 'Login Page' });
 });
     
 

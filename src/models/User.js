@@ -6,7 +6,11 @@ const SALT_ROUNDS = 10;
 const userSchema = new Schema({
     username: { type: String, required: true},
     email: { type: String, required: true},
-    password: { type: String, required: true}
+    password: { 
+        type: String,
+        required: true,
+        minLength: [4, 'Password must be at least 4 characters long']
+    }
 });
 
 userSchema.pre('save', async function(){
