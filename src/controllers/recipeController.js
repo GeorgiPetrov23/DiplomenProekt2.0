@@ -15,8 +15,10 @@ router.get('/create', (req, res) => {
 router.post('/create', async (req, res) => {
     const recipeData = req.body;
     req.body.ingredients = req.body.ingredients.split(', ').map(i => i.trim());
+    const ownerId = req.user?._id;
+    // console.log(ownerId);
 
-    await recipeService.create(recipeData);
+    await recipeService.create(recipeData, ownerId);
 
     res.redirect('/recipes/cookbook');
 });
@@ -24,6 +26,8 @@ router.post('/create', async (req, res) => {
 router.get('/details/:id', async (req, res) => {
     const recipeId = req.params.id;
     const recipe = await recipeService.getOne(recipeId).lean();
+
+    // const isOwner 
     
     res.render('recipes/details', { recipe, ingredients: recipe.ingredients, title: 'Recipe Details' });
 });

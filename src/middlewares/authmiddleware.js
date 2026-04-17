@@ -7,20 +7,24 @@ export const authMiddleware = (req, res, next) => {
        return next();
     }
 
-    //TODO: Validate the token
+
     try{
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 
-        req. user = {
+        console.log(decodedToken);
+
+        req.user = {
             _id: decodedToken._id,
             email: decodedToken.email
-        }
+        };
+
+        console.log(req.user);
 
         return next();
     }
     catch(err){
         res.clearCookie('auth');
         res.redirect('/auth/login');
-        //TODO: Invalid token
+
     }
 }

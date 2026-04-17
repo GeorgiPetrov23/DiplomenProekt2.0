@@ -8,8 +8,8 @@ const getOne = (recipeId) => {
     return Recipe.findById(recipeId);
 }
 
-const create = async (recipe) => {
-    return await Recipe.create(recipe);
+const create = async (recipe, ownerId) => {
+return await Recipe.create({ ...recipe, owner: ownerId });
 }
 
 export default {
