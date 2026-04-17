@@ -39,7 +39,10 @@ router.get('/:id/delete', async (req, res) => {
 
 router.get('/:id/edit', async (req, res) => {
     const recipeId = req.params.id;
-    
-    res.render('recipes/edit', { title: 'Edit Recipe' });
+
+    const recipe = await recipeService.getOne(recipeId).lean();
+    recipe.ingredients = recipe.ingredients.join(', ');
+
+    res.render('recipes/edit', { recipe, title: 'Edit Recipe' });
 });
 export default router;
