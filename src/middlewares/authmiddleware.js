@@ -11,14 +11,10 @@ export const authMiddleware = (req, res, next) => {
     try{
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 
-        console.log(decodedToken);
-
         req.user = {
             _id: decodedToken._id,
             email: decodedToken.email
         };
-
-        console.log(req.user);
 
         return next();
     }

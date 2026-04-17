@@ -30,4 +30,10 @@ router.get('/details/:id', async (req, res) => {
     
     res.render('recipes/details', { recipe, ingredients: recipe.ingredients, title: 'Recipe Details', isOwner });
 });
+
+router.get('/:id/delete', async (req, res) => {
+    const recipeId = req.params.id;
+    await recipeService.remove(recipeId);
+    res.redirect('/recipes/cookbook');
+});
 export default router;
