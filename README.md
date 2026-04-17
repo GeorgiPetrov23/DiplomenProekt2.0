@@ -6,30 +6,30 @@ JS project for Vocational High School of Electricity.
 
 ## Developing Steps
  - [x] Initial Project Architecture
- - [ ] Setup express
- 3. Setup handlebars
- 4. Add resources(HTML, CSS)
- 5. Setup static route
- 6. Render home page
- 7. Add routes and controllers
- 8. Extract partial template
- 9. Add service and data layers 
- 10. Add Create page
- 11. Add Details page
- 12. Extract init files
- 13. Setup mongoose
- 14. Add recipe model
- 15. Convert file based storage to db storage
- 16. Add register page
-    - Add User model
-    - Add authService and auth Controller
- 17. Add Login page
-    - validate that user exists
-    - validate hashed password
-    - create jwt token
-    - add token to cookie
- 18. Add authorization
- 19. Add owner relation to recipe
- 20. Add owner control buttons in details page
- 21. Delete Recipe
- 22. Edit Recipe 
+ - [x] Setup express
+  - [x]Setup handlebars
+  - [x]Add resources(HTML, CSS)
+  - [x]Setup static route
+  - [x]Render home page
+  - [x]Add routes and controllers
+  - [x]Extract partial template
+  - [x]Add service and data layers 
+  - [x]Add Create page
+  - [x]Add Details page
+  - [x]Extract init files
+  - [x]Setup mongoose
+  - [x]Add recipe model
+  - [x]Convert file based storage to db storage
+  - [x]Add register page
+    - [x] Add User model
+    - [x] Add authService and auth Controller
+  - [x]Add Login page
+    - [x] validate that user exists
+    - [x] validate hashed password
+    - [x] create jwt token
+    - [x] add token to cookie
+  - [x]Add authorization
+  - [x]Add owner relation to recipe
+  - [x]Add owner control buttons in details page
+  - [x]Delete Recipe
+  - []Edit Recipe 
