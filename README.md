@@ -36,3 +36,4 @@ JS project for Vocational High School of Electricity.
   - [x] Add dynamic navigation
   - [x] Logout 
   - [x] Add route guard
+  - [x] Automatically authenticate on register
