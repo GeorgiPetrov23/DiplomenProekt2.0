@@ -45,4 +45,15 @@ router.get('/:id/edit', async (req, res) => {
 
     res.render('recipes/edit', { recipe, title: 'Edit Recipe' });
 });
+
+router.post('/:id/edit', async (req, res) => {
+    const recipeData = req.body;
+    const recipeId = req.params.id;
+    recipeData.ingredients = recipeData.ingredients.split(', ').map(i => i.trim());
+    console.log(recipeData);
+
+    await recipeService.edit(recipeId, recipeData);
+
+    res.redirect(`/recipes/details/${recipeId}`);
+});
 export default router;

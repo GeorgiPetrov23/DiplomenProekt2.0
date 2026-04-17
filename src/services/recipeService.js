@@ -16,9 +16,14 @@ const remove = (recipeId) =>{
     return Recipe.findByIdAndDelete(recipeId);
 }
 
+const edit = (recipeId, recipeData) => {
+    return Recipe.findByIdAndUpdate(recipeId, recipeData);
+}
+
 export default {
     getAll,
     create,
     getOne,
-    remove
+    remove,
+    edit
 }; 

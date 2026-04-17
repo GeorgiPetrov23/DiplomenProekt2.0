@@ -23,9 +23,13 @@
     text-align: left;
 }
 
-.recipe-info p,
 .recipe-info h2 {
-    margin: 10px 0;
+    margin-top: 20px;
+}
+
+.recipe-info p{
+    margin-top: 0;
+    margin-bottom: 40px;
 }
 
 .ingredients li{
