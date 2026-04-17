@@ -34,4 +34,5 @@ JS project for Vocational High School of Electricity.
   - [x] Delete Recipe
   - [x] Edit Recipe
   - [x] Add dynamic navigation
-  - [ ] Logout 
+  - [x] Logout 
+  - [x] Add route guard

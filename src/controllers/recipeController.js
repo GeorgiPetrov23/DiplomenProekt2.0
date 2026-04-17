@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import recipeService from '../services/recipeService.js';
+import { isAuth } from '../middlewares/authmiddleware.js';
 
 const router = Router();
 
@@ -8,11 +9,11 @@ router.get('/cookbook', async (req, res) => {
     res.render('home/cookbook', { recipes, title: 'Cookbook' });
 });
     
-router.get('/create', (req, res) => {
+router.get('/create', isAuth, (req, res) => {
     res.render('recipes/create', { title: 'Create Recipe' });
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', isAuth, async (req, res) => {
     const recipeData = req.body;
     req.body.ingredients = req.body.ingredients.split(', ').map(i => i.trim());
     const ownerId = req.user?._id;
@@ -26,18 +27,18 @@ router.get('/details/:id', async (req, res) => {
     const recipeId = req.params.id;
     const recipe = await recipeService.getOne(recipeId).lean();
 
-    const isOwner = req.user?._id === recipe.owner?.toString();
+    const isOwner = recipe.owner && recipe.owner.toString() === req.user._id.toString();
     
     res.render('recipes/details', { recipe, ingredients: recipe.ingredients, title: 'Recipe Details', isOwner });
 });
 
-router.get('/:id/delete', async (req, res) => {
+router.get('/:id/delete', isAuth, async (req, res) => {
     const recipeId = req.params.id;
     await recipeService.remove(recipeId);
     res.redirect('/recipes/cookbook');
 });
 
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', isAuth, async (req, res) => {
     const recipeId = req.params.id;
 
     const recipe = await recipeService.getOne(recipeId).lean();
@@ -46,7 +47,7 @@ router.get('/:id/edit', async (req, res) => {
     res.render('recipes/edit', { recipe, title: 'Edit Recipe' });
 });
 
-router.post('/:id/edit', async (req, res) => {
+router.post('/:id/edit', isAuth, async (req, res) => {
     const recipeData = req.body;
     const recipeId = req.params.id;
     recipeData.ingredients = recipeData.ingredients.split(', ').map(i => i.trim());
