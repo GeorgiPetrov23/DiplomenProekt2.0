@@ -5,7 +5,7 @@ JS project for Vocational High School of Electricity.
 `npm start` - for developing
 
 ## Developing Steps
- 1. Initial Project Architecture
+ [X]. Initial Project Architecture
  2. Setup express
  3. Setup handlebars
  4. Add resources(HTML, CSS)
@@ -30,4 +30,6 @@ JS project for Vocational High School of Electricity.
     - add token to cookie
  18. Add authorization
  19. Add owner relation to recipe
- 20. Add owner control buttons in details page 
+ 20. Add owner control buttons in details page
+ 21. Delete Recipe
+ 22. Edit Recipe 
