@@ -56,4 +56,5 @@ router.post('/:id/edit', async (req, res) => {
 
     res.redirect(`/recipes/details/${recipeId}`);
 });
+
 export default router;
