@@ -32,4 +32,4 @@ JS project for Vocational High School of Electricity.
   - [x] Add owner relation to recipe
   - [x] Add owner control buttons in details page
   - [x] Delete Recipe
-  - [] Edit Recipe 
+  - [ ] Edit Recipe 
