@@ -26,5 +26,6 @@ JS project for Vocational High School of Electricity.
  17. Add Login page
     - validate that user exists
     - validate hashed password
-    - create token
+    - create jwt token
     - add token to cookie
+ 18. Add authorization
