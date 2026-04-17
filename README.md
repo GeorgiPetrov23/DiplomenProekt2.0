@@ -5,7 +5,7 @@ JS project for Vocational High School of Electricity.
 `npm start` - for developing
 
 ## Developing Steps
- [X]. Initial Project Architecture
+ - [X]. Initial Project Architecture
  2. Setup express
  3. Setup handlebars
  4. Add resources(HTML, CSS)
