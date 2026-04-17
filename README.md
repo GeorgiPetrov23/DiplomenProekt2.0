@@ -6,7 +6,7 @@ JS project for Vocational High School of Electricity.
 
 ## Developing Steps
  - [x]. Initial Project Architecture
- 2. Setup express
+ - [ ] Setup express
  3. Setup handlebars
  4. Add resources(HTML, CSS)
  5. Setup static route
