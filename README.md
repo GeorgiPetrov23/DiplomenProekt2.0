@@ -20,3 +20,11 @@ JS project for Vocational High School of Electricity.
  13. Setup mongoose
  14. Add recipe model
  15. Convert file based storage to db storage
+ 16. Add register page
+    - Add User model
+    - Add authService and auth Controller
+ 17. Add Login page
+    - validate that user exists
+    - validate hashed password
+    - create token
+    - add token to cookie
