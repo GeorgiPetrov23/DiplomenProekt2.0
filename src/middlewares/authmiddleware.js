@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
+import jwt from '../lib/jwt.js';
 
-export const authMiddleware = (req, res, next) => {
+export const authMiddleware = async (req, res, next) => {
     const token = req.cookies['auth'];
 
     if(!token){     
@@ -9,7 +9,7 @@ export const authMiddleware = (req, res, next) => {
 
 
     try{
-        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        const decodedToken = await jwt.verify(token, process.env.JWT_SECRET);
 
         const user = {
             _id: decodedToken._id,
@@ -36,5 +36,5 @@ export const isAuth = (req, res, next) => {
         return res.redirect('/auth/login');
     }
     return next();
-    
+
 }   
