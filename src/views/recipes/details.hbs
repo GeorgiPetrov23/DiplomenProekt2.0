@@ -12,7 +12,9 @@
         </aside>
         <h2>Instructions:</h2>
         <p>{{recipe.instructions}}</p>
-        <button class="edit-btn">Edit</button>
-        <button class="delete-btn">Delete</button>
+        {{#if isOwner}}
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+        {{/if}}
     </div>
 </div>

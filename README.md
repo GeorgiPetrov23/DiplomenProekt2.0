@@ -29,4 +29,5 @@ JS project for Vocational High School of Electricity.
     - create jwt token
     - add token to cookie
  18. Add authorization
- 19. Add owner control buttons in details page 
+ 19. Add owner relation to recipe
+ 20. Add owner control buttons in details page 

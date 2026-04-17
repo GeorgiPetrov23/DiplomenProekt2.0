@@ -16,7 +16,6 @@ router.post('/create', async (req, res) => {
     const recipeData = req.body;
     req.body.ingredients = req.body.ingredients.split(', ').map(i => i.trim());
     const ownerId = req.user?._id;
-    // console.log(ownerId);
 
     await recipeService.create(recipeData, ownerId);
 
@@ -27,8 +26,8 @@ router.get('/details/:id', async (req, res) => {
     const recipeId = req.params.id;
     const recipe = await recipeService.getOne(recipeId).lean();
 
-    // const isOwner 
+    const isOwner = req.user?._id === recipe.owner?.toString();
     
-    res.render('recipes/details', { recipe, ingredients: recipe.ingredients, title: 'Recipe Details' });
+    res.render('recipes/details', { recipe, ingredients: recipe.ingredients, title: 'Recipe Details', isOwner });
 });
 export default router;
