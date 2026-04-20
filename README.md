@@ -4,9 +4,15 @@ JS project for Vocational High School of Electricity.
 ## Start Project
 `npm start` - for developing
 
+## Initialize project
+`npm init -y`
+
+## intall packages
+`npm i`
+
 ## Developing Steps
- - [x] Initial Project Architecture
- - [x] Setup express
+  - [x] Initial Project Architecture
+  - [x] Setup express
   - [x] Setup handlebars
   - [x] Add resources(HTML, CSS)
   - [x] Setup static route
