@@ -18,7 +18,13 @@ router.post('/create', isAuth, async (req, res) => {
     req.body.ingredients = req.body.ingredients.split(', ').map(i => i.trim());
     const ownerId = req.user?._id;
 
-    await recipeService.create(recipeData, ownerId);
+    try{
+        await recipeService.create(recipeData, ownerId);
+    }catch(err){
+        console.dir(Object.values(err.errors)[0]?.message);
+        return res.end();
+    }
+
 
     res.redirect('/recipes/cookbook');
 });
@@ -26,8 +32,8 @@ router.post('/create', isAuth, async (req, res) => {
 router.get('/details/:id', async (req, res) => {
     const recipeId = req.params.id;
     const recipe = await recipeService.getOne(recipeId).lean();
-
-    const isOwner = recipe.owner && recipe.owner.toString() === req.user._id.toString();
+    recipe.ingredients = recipe.ingredients.map(i => i + 'g');
+    const isOwner = recipe.owner && recipe.owner.toString() === req.user?._id.toString();
     
     res.render('recipes/details', { recipe, ingredients: recipe.ingredients, title: 'Recipe Details', isOwner });
 });

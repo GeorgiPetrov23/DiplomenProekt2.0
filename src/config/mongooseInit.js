@@ -1,7 +1,8 @@
-import {connect} from 'mongoose';
+import {connect, set} from 'mongoose';
 
 const dbUrl = 'mongodb://localhost:27017/Recipe-Site';
 
+set('runValidators', true);
 export default async function mongooseInit() {
     try {
         await connect(dbUrl);

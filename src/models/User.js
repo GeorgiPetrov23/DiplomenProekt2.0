@@ -4,12 +4,29 @@ import bcrypt from 'bcrypt';
 const SALT_ROUNDS = 10;
 
 const userSchema = new Schema({
-    username: { type: String, required: true},
-    email: { type: String, required: true},
+    username: { 
+        type: String, 
+        required: [true, 'Username is required'],
+        minLength: [5, 'Username must be at least 5 characters long']
+    },
+    email: { 
+        type: String, 
+        required: [true, 'Email is required'],
+        unique: true,
+        minLength: [10, 'Email must be at least 10 characters long'],
+        validate: [/@[A-Za-z0-9]+\.[A-Za-z0-9]+$/, 'Invalid email address!']
+    },
     password: { 
         type: String,
-        required: true,
-        minLength: [4, 'Password must be at least 4 characters long']
+        required: [true, 'Password is required'],
+        minLength: [6, 'Password must be at least 6 characters long']
+    }
+});
+
+userSchema.virtual('rePassword')
+.set(function(value){
+    if(value !== this.password){
+        throw new Error('Passwords do not match!');
     }
 });
 
