@@ -105,40 +105,15 @@ footer {
     box-shadow: 8px 8px 8px 15px rgba(0, 0, 0, 0.5);
 }
 
-.error-containers {
-    position: fixed;
-    right: 5em;
-    min-width: 80px;
-    display: block;
-    z-index: 11111;
-    top: 13%;
+.errorContainer{
+    background: #f59e0b;
+    padding: 5px;
+    color: white;
     text-align: center;
-    border-radius: 0.5rem;
-    color: rgb(255, 255, 255);
-    font-style: italic;
-    font-weight: bold;
-    height: auto;
-    width: 300px;
-    padding: 1em;
-}
-
-.error-containers > p {
-    background: #2c3e50;
-    font-size: 18px;
-    padding: 10px;
-    height: auto;
-}
-
-.error-containers {
-    -moz-animation: cssAnimation 0s ease-in 2s forwards;
-    /* Firefox */
-    -webkit-animation: cssAnimation 0s ease-in 2s forwards;
-    /* Safari and Chrome */
-    -o-animation: cssAnimation 0s ease-in 2s forwards;
-    /* Opera */
-    animation: cssAnimation 0s ease-in 2s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes cssAnimation {

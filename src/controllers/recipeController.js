@@ -21,8 +21,8 @@ router.post('/create', isAuth, async (req, res) => {
     try{
         await recipeService.create(recipeData, ownerId);
     }catch(err){
-        console.dir(Object.values(err.errors)[0]?.message);
-        return res.end();
+        const errorMessage = Object.values(err.errors)[0]?.message;;
+        return res.render('recipes/create', { title: 'Create Recipe', error: errorMessage, recipe: recipeData });
     }
 
 
