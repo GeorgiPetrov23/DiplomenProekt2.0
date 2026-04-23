@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import recipeService from '../services/recipeService.js';
 import { isAuth } from '../middlewares/authmiddleware.js';
+import { getErrorMessage } from '../utils/errorUtils.js';
 
 const router = Router();
 
@@ -21,7 +22,7 @@ router.post('/create', isAuth, async (req, res) => {
     try{
         await recipeService.create(recipeData, ownerId);
     }catch(err){
-        const errorMessage = Object.values(err.errors)[0]?.message;;
+        const errorMessage = getErrorMessage(err);
         return res.render('recipes/create', { title: 'Create Recipe', error: errorMessage, recipe: recipeData });
     }
 
@@ -40,6 +41,17 @@ router.get('/details/:id', async (req, res) => {
 
 router.get('/:id/delete', isAuth, async (req, res) => {
     const recipeId = req.params.id;
+
+    //Check if the user is the owner of the recipe before deleting
+    const recipe = await recipeService.getOne(recipeId).lean();
+
+    if(recipe.owner?.toString() !== req.user._id){
+        res.setError('You are not authorized to delete this recipe!');
+
+        return res.redirect('/404');
+    
+    }
+
     await recipeService.remove(recipeId);
     res.redirect('/recipes/cookbook');
 });
@@ -48,6 +60,14 @@ router.get('/:id/edit', isAuth, async (req, res) => {
     const recipeId = req.params.id;
 
     const recipe = await recipeService.getOne(recipeId).lean();
+
+
+
+    if(recipe.owner?.toString() !== req.user._id){
+        res.setError('You are not authorized to edit this recipe!');
+
+        return res.redirect('/404');
+    }
     recipe.ingredients = recipe.ingredients.join(', ');
 
     res.render('recipes/edit', { recipe, title: 'Edit Recipe' });
@@ -57,11 +77,17 @@ router.post('/:id/edit', isAuth, async (req, res) => {
     const recipeData = req.body;
     const recipeId = req.params.id;
     recipeData.ingredients = recipeData.ingredients.split(', ').map(i => i.trim());
-    console.log(recipeData);
 
-    await recipeService.edit(recipeId, recipeData);
+    
+    try{
+        await recipeService.edit(recipeId, recipeData);
+        res.redirect(`/recipes/details/${recipeId}`);
+    }
+    catch(err){
+        const errorMessage = getErrorMessage(err);
+        return res.render('recipes/create', { title: 'Edit Recipe', error: errorMessage, recipe: recipeData });
+    }
 
-    res.redirect(`/recipes/details/${recipeId}`);
 });
 
 export default router;

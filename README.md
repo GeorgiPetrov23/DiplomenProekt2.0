@@ -1,5 +1,6 @@
 # DiplomenProekt2.0
 JS project for Vocational High School of Electricity.
+!IMPORTANT For the project to work you have to install MongoDB Compass on you PC.
 
 ## Start Project
 `npm start` - for developing
@@ -44,3 +45,5 @@ JS project for Vocational High School of Electricity.
   - [x] Add route guard
   - [x] Automatically authenticate on register
   - [x] Make jwt library asynchronous
+  - [x] Add mongoose validation on model level
+  - [x] Add error handling

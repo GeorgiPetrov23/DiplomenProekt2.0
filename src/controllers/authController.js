@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import authService from '../services/authService.js';
-import validator from 'validator';
+import { getErrorMessage } from '../utils/errorUtils.js';
 
 const router = Router();
 
@@ -10,19 +10,12 @@ router.get('/register', (req, res) =>{
 
 router.post('/register', async (req, res) => {
     const { username, email, password, rePassword } = req.body;
-
-    // if(!validator.isEmail(email)){
-    //     return res.status(400).end();
-    // }
-
     
     try{
         await authService.register(username, email, password, rePassword);
     }catch(err){
-        console.log(err.message);
-        return res.end();
+        return res.render('auth/register', { title: 'Register Page', error: getErrorMessage(err), username, email });
     }
-
 
     const token = await authService.login(email, password);
 
@@ -38,11 +31,15 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    const token = await authService.login(email, password);
+    try{
+        const token = await authService.login(email, password);
+        res.cookie('auth',token, { httpOnly: true });
+        res.redirect('/');
+    }catch(err){
+        return res.render('auth/login', { title: 'Login Page', error: getErrorMessage(err), email });
+    }
 
-    res.cookie('auth',token, { httpOnly: true });
 
-    res.redirect('/');
 });
 
 router.get('/logout', (req, res) => {
