@@ -5,9 +5,6 @@ JS project for Vocational High School of Electricity.
 ## Start Project
 `npm start` - for developing
 
-## Initialize project
-`npm init -y`
-
 ## intall packages
 `npm i`
 
